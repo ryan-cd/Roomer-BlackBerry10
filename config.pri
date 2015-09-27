@@ -44,13 +44,17 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/SettingsSheet.qml) \
         $$quote($$BASEDIR/assets/Spinners.qml) \
         $$quote($$BASEDIR/assets/Toasts.qml) \
+        $$quote($$BASEDIR/assets/controls/NetworkActivity.qml) \
+        $$quote($$BASEDIR/assets/images/background.png) \
         $$quote($$BASEDIR/assets/images/bbm.png) \
         $$quote($$BASEDIR/assets/images/bbworld.png) \
         $$quote($$BASEDIR/assets/images/cover.png) \
         $$quote($$BASEDIR/assets/images/filepicker.png) \
+        $$quote($$BASEDIR/assets/images/get.png) \
         $$quote($$BASEDIR/assets/images/home.png) \
         $$quote($$BASEDIR/assets/images/icon.png) \
         $$quote($$BASEDIR/assets/images/invite.png) \
+        $$quote($$BASEDIR/assets/images/post.png) \
         $$quote($$BASEDIR/assets/images/share.png) \
         $$quote($$BASEDIR/assets/images/spinner.png) \
         $$quote($$BASEDIR/assets/images/splash-1280x720.png) \
@@ -58,17 +62,20 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/splash-720x720.png) \
         $$quote($$BASEDIR/assets/images/toast.png) \
         $$quote($$BASEDIR/assets/images/update.png) \
-        $$quote($$BASEDIR/assets/main.qml)
+        $$quote($$BASEDIR/assets/main.qml) \
+        $$quote($$BASEDIR/assets/requestinfo.qml)
 }
 
 config_pri_source_group1 {
     SOURCES += \
+        $$quote($$BASEDIR/src/RequestHeaders.cpp) \
         $$quote($$BASEDIR/src/activeFrameQML.cpp) \
         $$quote($$BASEDIR/src/applicationui.cpp) \
         $$quote($$BASEDIR/src/bbm/BBMHandler.cpp) \
         $$quote($$BASEDIR/src/main.cpp)
 
     HEADERS += \
+        $$quote($$BASEDIR/src/RequestHeaders.hpp) \
         $$quote($$BASEDIR/src/activeFrameQML.h) \
         $$quote($$BASEDIR/src/applicationui.hpp) \
         $$quote($$BASEDIR/src/bbm/BBMHandler.hpp)
@@ -96,6 +103,9 @@ lupdate_inclusion {
         $$quote($$BASEDIR/../assets/*.qml) \
         $$quote($$BASEDIR/../assets/*.js) \
         $$quote($$BASEDIR/../assets/*.qs) \
+        $$quote($$BASEDIR/../assets/controls/*.qml) \
+        $$quote($$BASEDIR/../assets/controls/*.js) \
+        $$quote($$BASEDIR/../assets/controls/*.qs) \
         $$quote($$BASEDIR/../assets/images/*.qml) \
         $$quote($$BASEDIR/../assets/images/*.js) \
         $$quote($$BASEDIR/../assets/images/*.qs)

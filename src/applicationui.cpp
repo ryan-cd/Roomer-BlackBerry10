@@ -16,6 +16,7 @@
 
 #include "bbm/BBMHandler.hpp"
 #include "activeFrameQML.h"
+#include "RequestHeaders.hpp"
 
 #include <bb/cascades/Application>
 #include <bb/cascades/QmlDocument>
@@ -27,6 +28,12 @@ using namespace bb::cascades;
 ApplicationUI::ApplicationUI(bb::cascades::Application *app) :
         QObject(app)
 {
+    //add custom object RequestHeaders class as a qml type
+    qmlRegisterType<RequestHeaders>("Network.RequestHeaders", 1, 0, "RequestHeaders");
+
+    //add a QTimer class as a qml type
+    qmlRegisterType<QTimer>("my.library", 1, 0, "QTimer");
+
     // prepare the localization
     m_pTranslator = new QTranslator(this);
     m_pLocaleHandler = new LocaleHandler(this);

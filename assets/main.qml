@@ -15,7 +15,6 @@
 import bb.cascades 1.2
 
 TabbedPane {
-
     attachedObjects: [
         ComponentDefinition {
             id: helpSheetDefinition
@@ -71,6 +70,72 @@ TabbedPane {
         imageSource: "asset:///images/home.png"
         delegate: Delegate {
             Home {
+            }
+        }
+    }
+    Tab {
+        title: qsTr("McMaster")
+        imageSource: "asset:///images/get.png"
+        
+        NavigationPane {
+            id: httpGetNavPane
+            
+            onPopTransitionEnded: page.destroy()
+            
+            Page {
+                Container {
+                    layout: DockLayout {}
+                    
+                    // The background image
+                    ImageView {
+                        horizontalAlignment: HorizontalAlignment.Fill
+                        verticalAlignment: VerticalAlignment.Fill
+                        
+                        imageSource: "asset:///images/background.png"
+                    }
+                    
+                    Container {
+                        horizontalAlignment: HorizontalAlignment.Fill
+                        verticalAlignment: VerticalAlignment.Top
+                        
+                        background: Color.Black
+                        
+                        Label {
+                            horizontalAlignment: HorizontalAlignment.Center
+                            
+                            text: qsTr("GET REQUESTS")
+                            
+                            textStyle {
+                                base: SystemDefaults.TextStyles.BigText;
+                                color: Color.White
+                                fontStyle: FontStyle.Italic
+                                fontWeight: FontWeight.Bold
+                                textAlign: TextAlign.Center
+                            }
+                        }
+                    }
+                    
+                    Container {
+                        horizontalAlignment: HorizontalAlignment.Fill
+                        verticalAlignment: VerticalAlignment.Center
+                        //! [1]
+                        Button {
+                            horizontalAlignment: HorizontalAlignment.Center
+                            
+                            text: qsTr("Get Request Headers")
+                            
+                            onClicked: {
+                                httpGetNavPane.push(requestinfoPageDefinition.createObject());
+                            }
+                            
+                            attachedObjects: ComponentDefinition {
+                                id: requestinfoPageDefinition
+                                source: "requestinfo.qml"
+                            }
+                        }
+                        //! [1]
+                    }
+                }
             }
         }
     }

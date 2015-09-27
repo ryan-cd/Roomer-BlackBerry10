@@ -87,6 +87,13 @@
     </message>
 </context>
 <context>
+    <name>Home</name>
+    <message>
+        <source>Roomer</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Invoke</name>
     <message>
         <source>Invoke</source>
@@ -98,6 +105,17 @@
     </message>
     <message>
         <source>BlackBerry World</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RequestHeaders</name>
+    <message>
+        <source>Error: %1 status: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unable to retrieve request headers</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -166,6 +184,25 @@
     </message>
     <message>
         <source>Invite To Download</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>McMaster</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GET REQUESTS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Get Request Headers</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>requestinfo</name>
+    <message>
+        <source>Retrieving Headers</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
