@@ -70,7 +70,6 @@ void RequestHeaders::getRequest()
 void RequestHeaders::onGetReply()
 {
     QNetworkReply* reply = qobject_cast<QNetworkReply*>(sender());
-
     QString response;
     if (reply) {
         if (reply->error() == QNetworkReply::NoError) {
@@ -98,14 +97,13 @@ void RequestHeaders::onGetReply()
 
                 // Locate the header array
 //                QMap<QString, QVariant>::const_iterator it = jsonreply.find("headers");
-                QMap<QString, QVariant>::const_iterator it = jsonreply.begin();
+                /*QMap<QString, QVariant>::const_iterator it = jsonreply.begin();
                 if (it != jsonreply.end()) {
                     // Print everything in header array
                     const QMap<QString, QVariant> headers = it.value().toMap();
                     for (QMap<QString, QVariant>::const_iterator hdrIter = headers.begin(); hdrIter != headers.end(); ++hdrIter) {
                         if (hdrIter.value().toString().trimmed().isEmpty())
                             continue; // Skip empty values
-
                         response += QString::fromLatin1("%1: %2\r\n").arg(hdrIter.key(), hdrIter.value().toString());
                     }
                 }
@@ -116,6 +114,13 @@ void RequestHeaders::onGetReply()
                         continue;  // Skip empty values
 
                     response += QString::fromLatin1("%1: %2\r\n").arg(it.key(), it.value().toString());
+                }*/
+                for(int i = 0; i < jsonreply.keys().count(); i++)
+                {
+                    response += jsonreply.keys().takeAt(i);
+                    response += ": ";
+                    response += jsonreply.values().takeAt(i).toString();
+                    response += "\n";
                 }
 
             }
