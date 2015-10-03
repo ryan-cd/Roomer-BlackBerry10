@@ -191,11 +191,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>GET REQUESTS</source>
+        <source>requestinfo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Get Request Headers</source>
+        <source>Retrieving Headers</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -203,6 +203,10 @@
     <name>requestinfo</name>
     <message>
         <source>Retrieving Headers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>requestinfo</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

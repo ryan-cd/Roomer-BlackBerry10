@@ -78,7 +78,8 @@ config_pri_source_group1 {
         $$quote($$BASEDIR/src/RequestHeaders.hpp) \
         $$quote($$BASEDIR/src/activeFrameQML.h) \
         $$quote($$BASEDIR/src/applicationui.hpp) \
-        $$quote($$BASEDIR/src/bbm/BBMHandler.hpp)
+        $$quote($$BASEDIR/src/bbm/BBMHandler.hpp) \
+        $$quote($$BASEDIR/src/secrets.hpp)
 }
 
 INCLUDEPATH += $$quote($$BASEDIR/src/bbm) \

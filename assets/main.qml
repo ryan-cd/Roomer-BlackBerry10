@@ -12,7 +12,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import bb.cascades 1.2
+import bb.cascades 1.3
+import Network.RequestHeaders 1.0
+import "controls"
+import my.library 1.0
 
 TabbedPane {
     attachedObjects: [
@@ -77,65 +80,78 @@ TabbedPane {
         title: qsTr("McMaster")
         imageSource: "asset:///images/get.png"
         
-        NavigationPane {
-            id: httpGetNavPane
-            
-            onPopTransitionEnded: page.destroy()
-            
-            Page {
+        Page {
+            titleBar: TitleBar {
+                title: qsTr("requestinfo") + Retranslate.onLanguageChanged
+            }
+            Container {
+                
+                layout: DockLayout {}
+                
+                // The background image
+                ImageView {
+                    horizontalAlignment: HorizontalAlignment.Fill
+                    verticalAlignment: VerticalAlignment.Fill
+                    
+                    imageSource: "asset:///images/background.png"
+                }
+                //! [0]
                 Container {
-                    layout: DockLayout {}
+                    horizontalAlignment: HorizontalAlignment.Center
+                    verticalAlignment: VerticalAlignment.Center
+                    leftPadding: ui.du(5.6)
                     
-                    // The background image
-                    ImageView {
-                        horizontalAlignment: HorizontalAlignment.Fill
-                        verticalAlignment: VerticalAlignment.Fill
+                    TextArea {
+                        id: headers
                         
-                        imageSource: "asset:///images/background.png"
-                    }
-                    
-                    Container {
-                        horizontalAlignment: HorizontalAlignment.Fill
-                        verticalAlignment: VerticalAlignment.Top
+                        visible: false
+                        editable: false
+                        backgroundVisible: false
                         
-                        background: Color.Black
-                        
-                        Label {
-                            horizontalAlignment: HorizontalAlignment.Center
-                            
-                            text: qsTr("GET REQUESTS")
-                            
-                            textStyle {
-                                base: SystemDefaults.TextStyles.BigText;
-                                color: Color.White
-                                fontStyle: FontStyle.Italic
-                                fontWeight: FontWeight.Bold
-                                textAlign: TextAlign.Center
-                            }
+                        text: qsTr("Retrieving Headers")
+                        textStyle {
+                            base: SystemDefaults.TextStyles.BodyText;
+                            color: Color.White
                         }
-                    }
-                    
-                    Container {
-                        horizontalAlignment: HorizontalAlignment.Fill
-                        verticalAlignment: VerticalAlignment.Center
-                        //! [1]
-                        Button {
-                            horizontalAlignment: HorizontalAlignment.Center
-                            
-                            text: qsTr("Get Request Headers")
-                            
-                            onClicked: {
-                                httpGetNavPane.push(requestinfoPageDefinition.createObject());
-                            }
-                            
-                            attachedObjects: ComponentDefinition {
-                                id: requestinfoPageDefinition
-                                source: "requestinfo.qml"
-                            }
-                        }
-                        //! [1]
                     }
                 }
+                
+                NetworkActivity {
+                    id: progressIndicator
+                    
+                    horizontalAlignment: HorizontalAlignment.Fill
+                    verticalAlignment: VerticalAlignment.Fill
+                    
+                    title: qsTr("Retrieving Headers")
+                }
+                
+                attachedObjects: [
+                    QTimer {
+                        id: timer
+                        interval: 1000
+                        onTimeout: {
+                            netheaders.getRequest();
+                        }
+                    },
+                    RequestHeaders {
+                        id : netheaders
+                        onComplete :{
+                            progressIndicator.active = false;
+                            progressIndicator.visible = false;
+                            
+                            headers.text = info;
+                            headers.visible = true;
+                            
+                            timer.stop();
+                        }
+                    }
+                ]
+                
+                onCreationCompleted: {
+                    progressIndicator.active = true;
+                    timer.start();
+                }
+                //! [0]
             }
         }
     }

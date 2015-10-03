@@ -24,6 +24,7 @@
 #include <QSslConfiguration>
 #include <QUrl>
 
+#include "secrets.hpp"
 /**
  * RequestHeaders
  *
@@ -69,13 +70,19 @@ void RequestHeaders::getRequest()
 //! [1]
 void RequestHeaders::onGetReply()
 {
+    qDebug() << "Enter";
     QNetworkReply* reply = qobject_cast<QNetworkReply*>(sender());
     QString response;
     if (reply) {
+        qDebug() << "Reply";
         if (reply->error() == QNetworkReply::NoError) {
+            qDebug() << "No error";
             const int available = reply->bytesAvailable();
 
+            qDebug() << "bytes available: " << available;
+
             if (available > 0) {
+                qDebug() << "Available";
                 const QByteArray buffer(reply->readAll());
 
                 // The data from reply is in a json format e.g

@@ -28,6 +28,9 @@ import my.library 1.0
 **/
 
 Page {
+    titleBar: TitleBar {
+        title: qsTr("requestinfo") + Retranslate.onLanguageChanged
+    }
     Container {
 
         layout: DockLayout {}
