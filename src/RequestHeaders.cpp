@@ -50,9 +50,9 @@ RequestHeaders::RequestHeaders(QObject* parent)
 //! [0]
 void RequestHeaders::getRequest()
 {
-    const QUrl url("http://httpbin.org/get");
+    const QUrl url("http://headers.jsontest.com/");
 
-    QNetworkRequest request(url);
+    QNetworkRequest request(roomUrl);
 
     QNetworkReply* reply = m_networkAccessManager->get(request);
     bool ok = connect(reply, SIGNAL(finished()), this, SLOT(onGetReply()));
@@ -80,7 +80,7 @@ void RequestHeaders::onGetReply()
             const int available = reply->bytesAvailable();
 
             qDebug() << "bytes available: " << available;
-
+            qDebug() << "network response: " << reply->attribute(QNetworkRequest::HttpStatusCodeAttribute);
             if (available > 0) {
                 qDebug() << "Available";
                 const QByteArray buffer(reply->readAll());
@@ -100,6 +100,7 @@ void RequestHeaders::onGetReply()
 
                 bb::data::JsonDataAccess ja;
                 const QVariant jsonva = ja.loadFromBuffer(buffer);
+
                 const QMap<QString, QVariant> jsonreply = jsonva.toMap();
 
                 // Locate the header array
@@ -122,11 +123,18 @@ void RequestHeaders::onGetReply()
 
                     response += QString::fromLatin1("%1: %2\r\n").arg(it.key(), it.value().toString());
                 }*/
+                QList<QVariant> rooms;
+                qDebug() << "number of keys" << jsonreply.keys().count();
                 for(int i = 0; i < jsonreply.keys().count(); i++)
                 {
                     response += jsonreply.keys().takeAt(i);
                     response += ": ";
-                    response += jsonreply.values().takeAt(i).toString();
+                    if(i == 0)
+                        qDebug() << "num rooms" << jsonreply.values().takeAt(i).toList().count();
+                    rooms = jsonreply.values().takeAt(i).toList();
+                    for(int j = 0; j < rooms.count() && i == 0; j++)
+                        response += rooms[j].toString();
+                    qDebug() << "room info " << rooms;
                     response += "\n";
                 }
 

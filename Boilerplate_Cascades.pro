@@ -6,4 +6,4 @@ LIBS   += -lbbdata -lbbplatformbbm -lbbsystem
 
 include(config.pri)
 
-QT += network
+QT += network core
