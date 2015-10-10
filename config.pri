@@ -69,6 +69,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/Spinners.qml) \
         $$quote($$BASEDIR/assets/Toasts.qml) \
         $$quote($$BASEDIR/assets/controls/NetworkActivity.qml) \
+        $$quote($$BASEDIR/assets/images/R_door_2.0.3.png) \
         $$quote($$BASEDIR/assets/images/background.png) \
         $$quote($$BASEDIR/assets/images/bbm.png) \
         $$quote($$BASEDIR/assets/images/bbworld.png) \
@@ -79,6 +80,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icon.png) \
         $$quote($$BASEDIR/assets/images/invite.png) \
         $$quote($$BASEDIR/assets/images/post.png) \
+        $$quote($$BASEDIR/assets/images/roomer_icon.png) \
         $$quote($$BASEDIR/assets/images/share.png) \
         $$quote($$BASEDIR/assets/images/spinner.png) \
         $$quote($$BASEDIR/assets/images/splash-1280x720.png) \

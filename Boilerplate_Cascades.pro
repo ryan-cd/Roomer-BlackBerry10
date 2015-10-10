@@ -1,4 +1,4 @@
-APP_NAME = Boilerplate_Cascades
+APP_NAME = Roomer
 
 CONFIG += qt warn_on cascades10
 

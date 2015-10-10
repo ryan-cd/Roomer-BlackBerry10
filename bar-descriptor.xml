@@ -26,11 +26,11 @@
 
     <!-- A universally unique application identifier. Must be unique across all BlackBerry 10 applications.
          Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
-    <id>com.example.Boilerplate_Cascades</id>
+    <id>com.example.Roomer</id>
 
     <!-- The name that is displayed in the BlackBerry 10 application installer. 
          May have multiple values for each language. See samples or xsd schema file. Optional. -->
-    <name>Boilerplate-Cascades</name>
+    <name>Roomer</name>
     
     <!-- A string value of the format <0-999>.<0-999>.<0-999> that represents application version which can be used to check for application upgrade. 
          Values can also be 1-part or 2-part. It is not necessary to have a 3-part value.
@@ -46,14 +46,14 @@
 
     <!-- Description, displayed in the BlackBerry 10 application installer.
          May have multiple values for each language. See samples or xsd schema file. Optional. -->
-    <description>The Boilerplate-Cascades application</description>
 
     <!-- Copyright information. Optional. -->
     <!-- <copyright></copyright> -->
 
     <!--  Name of author which is used for signing. Must match the developer name of your development certificate. -->
-    <author>Tim Windsor</author>
-    <authorId>gYAAgJUfz12UlyyiwZcR759csZs</authorId>
+    <author>Flash Jump</author>
+    <description>Find available rooms</description>
+    <authorId>gYAAgBdtDrToKlvVQtt_558R3iw</authorId>
     <splashScreens>
        <image>splash-1280x768.png</image>
        <image>splash-720x720.png</image>
@@ -89,7 +89,7 @@
     <!--  The icon for the application, which should be 114x114. -->
     <icon>
         <image></image>
-        <image>icon.png</image>
+        <image>roomer_icon.png</image>
     </icon>
 
     <asset path="assets">assets</asset>
@@ -102,10 +102,12 @@
     <asset path="assets/images/splash-720x720.png">splash-720x720.png</asset>
     <asset path="assets/images/icon.png">icon.png</asset>
     <asset path="assets/images/splash-1280x720.png">splash-1280x720.png</asset>
+    <asset path="assets/images/roomer_icon.png">roomer_icon.png</asset>
     
     <!-- Request permission to execute native code.  Required for native applications. -->
     <permission system="true">run_native</permission>
     <permission>bbm_connect</permission>
     <env var="LD_LIBRARY_PATH" value="app/native/lib:/usr/lib/qt4/lib"/>
+    <env var="CASCADES_THEME" value="default"/>
 
 </qnx>
