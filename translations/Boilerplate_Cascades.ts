@@ -167,22 +167,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>BBM</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Invoke</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Toasts</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Spinners</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Invite To Download</source>
         <translation type="unfinished"></translation>
     </message>
@@ -191,11 +175,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>requestinfo</source>
+        <source>Available Rooms</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Retrieving Headers</source>
+        <source>Fetching room data...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

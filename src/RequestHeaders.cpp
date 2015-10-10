@@ -123,18 +123,29 @@ void RequestHeaders::onGetReply()
 
                     response += QString::fromLatin1("%1: %2\r\n").arg(it.key(), it.value().toString());
                 }*/
+                QList<QVariant> buildings;
                 QList<QVariant> rooms;
-                qDebug() << "number of keys" << jsonreply.keys().count();
+                qDebug() << "number of buildings" << jsonreply.keys().count();
                 for(int i = 0; i < jsonreply.keys().count(); i++)
                 {
                     response += jsonreply.keys().takeAt(i);
                     response += ": ";
                     if(i == 0)
                         qDebug() << "num rooms" << jsonreply.values().takeAt(i).toList().count();
-                    rooms = jsonreply.values().takeAt(i).toList();
-                    for(int j = 0; j < rooms.count() && i == 0; j++)
-                        response += rooms[j].toString();
-                    qDebug() << "room info " << rooms;
+                    buildings = jsonreply.values().takeAt(i).toList();
+                    for(int j = 0; j < buildings.count(); j++)
+                    {
+                        rooms = buildings[j].toList();
+                        response += "[";
+                        for(int k = 0; k < rooms.count(); k+=2)
+                        {
+                            //qDebug() << rooms[k].toString() << ": " << rooms[k+1].toString();
+                            response += rooms[k].toString() + ": " + rooms[k+1].toString();
+                        }
+                        response += "]\n";
+                    }
+                    //if(i==0)
+                        //qDebug() << "room info " << rooms;
                     response += "\n";
                 }
 

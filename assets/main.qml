@@ -82,7 +82,7 @@ TabbedPane {
         
         Page {
             titleBar: TitleBar {
-                title: qsTr("requestinfo") + Retranslate.onLanguageChanged
+                title: qsTr("Available Rooms") + Retranslate.onLanguageChanged
             }
             Container {
                 
@@ -108,7 +108,7 @@ TabbedPane {
                         editable: false
                         backgroundVisible: false
                         
-                        text: qsTr("Retrieving Headers")
+                        text: qsTr("Fetching room data...")
                         textStyle {
                             base: SystemDefaults.TextStyles.BodyText;
                             color: Color.White
@@ -122,7 +122,7 @@ TabbedPane {
                     horizontalAlignment: HorizontalAlignment.Fill
                     verticalAlignment: VerticalAlignment.Fill
                     
-                    title: qsTr("Retrieving Headers")
+                    title: qsTr("Fetching room data...")
                 }
                 
                 attachedObjects: [
@@ -155,7 +155,7 @@ TabbedPane {
             }
         }
     }
-    Tab {
+    /*Tab {
         title: qsTr("BBM") + Retranslate.onLanguageChanged
         imageSource: "asset:///images/bbm.png"
         delegate: Delegate {
@@ -187,5 +187,5 @@ TabbedPane {
             }
         }
 
-    }
+    }*/
 }
