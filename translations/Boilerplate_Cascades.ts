@@ -92,6 +92,10 @@
         <source>Roomer</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Swipe right to begin.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Invoke</name>
@@ -180,6 +184,10 @@
     </message>
     <message>
         <source>Fetching room data...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ListView</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -18,6 +18,8 @@ import "controls"
 import my.library 1.0
 
 TabbedPane {
+    id: nav
+    
     attachedObjects: [
         ComponentDefinition {
             id: helpSheetDefinition
@@ -157,11 +159,12 @@ TabbedPane {
     }
     
     Tab {
+        title: qsTr("ListView")
         Page {
             id: stampListPage
             
             Container {
-                /*// A paper-style image is used to tile the background.
+                // A paper-style image is used to tile the background.
                 background: backgroundPaint.imagePaint
                 
                 attachedObjects: [
@@ -170,7 +173,7 @@ TabbedPane {
                         imageSource: "asset:///images/Scribble_light_256x256.amd"
                         repeatPattern: RepeatPattern.XY
                     }
-                ]*/
+                ]
                 
                 // Main List
                 ListView {
@@ -231,7 +234,8 @@ TabbedPane {
                             contentpage.contentDescription = chosenItem.infoText
                             
                             // Push the content page to the navigation stack
-                            nav.push(contentpage);
+                            //NOTE: Cannot push onto a TabbedPane
+                            //nav.push(contentpage);
                         }
                     }                
                 }
@@ -243,7 +247,7 @@ TabbedPane {
             // This is the definition of the Content page used to create a page in the onTriggered signal-handler above. 
             ComponentDefinition {
                 id: contentPageDefinition
-                source: "Spinners.qml"
+                source: "ContentPage.qml"
             }
         ]
         

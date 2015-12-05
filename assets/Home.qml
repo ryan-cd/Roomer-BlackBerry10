@@ -12,13 +12,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import bb.cascades 1.2
+import bb.cascades 1.3
 
 Page {
     titleBar: TitleBar {
         title: qsTr("Roomer") + Retranslate.onLanguageChanged
     }
     Container {
+        horizontalAlignment: HorizontalAlignment.Center
+        verticalAlignment: VerticalAlignment.Center
         
+        TextArea {
+            id: homeText
+            
+            editable: false
+            backgroundVisible: false
+            
+            text: qsTr("Swipe right to begin.")
+            textStyle {
+                base: SystemDefaults.TextStyles.BodyText
+                color: Color.Black
+                fontSize: FontSize.Large
+            }
+        }
     }
 }
