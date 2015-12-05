@@ -62,14 +62,38 @@ config_pri_assets {
     OTHER_FILES += \
         $$quote($$BASEDIR/assets/AppCover.qml) \
         $$quote($$BASEDIR/assets/BBM.qml) \
+        $$quote($$BASEDIR/assets/ContentPage.qml) \
         $$quote($$BASEDIR/assets/HelpSheet.qml) \
         $$quote($$BASEDIR/assets/Home.qml) \
         $$quote($$BASEDIR/assets/Invoke.qml) \
         $$quote($$BASEDIR/assets/SettingsSheet.qml) \
         $$quote($$BASEDIR/assets/Spinners.qml) \
+        $$quote($$BASEDIR/assets/StampItem.qml) \
         $$quote($$BASEDIR/assets/Toasts.qml) \
         $$quote($$BASEDIR/assets/controls/NetworkActivity.qml) \
+        $$quote($$BASEDIR/assets/images/BlueNoseBig.png) \
+        $$quote($$BASEDIR/assets/images/BlueNoseThumb.png) \
+        $$quote($$BASEDIR/assets/images/BritishPossessionsBig.png) \
+        $$quote($$BASEDIR/assets/images/BritishPossessionsThumb.png) \
+        $$quote($$BASEDIR/assets/images/ColumbusBig.png) \
+        $$quote($$BASEDIR/assets/images/ColumbusThumb.png) \
+        $$quote($$BASEDIR/assets/images/GoddardBig.png) \
+        $$quote($$BASEDIR/assets/images/GoddardThumb.png) \
+        $$quote($$BASEDIR/assets/images/InvertedJennyBig.png) \
+        $$quote($$BASEDIR/assets/images/InvertedJennyThumb.png) \
+        $$quote($$BASEDIR/assets/images/KaiserThumb.png) \
+        $$quote($$BASEDIR/assets/images/KaiserYachtBig.png) \
+        $$quote($$BASEDIR/assets/images/ProjectMercuryBig.png) \
+        $$quote($$BASEDIR/assets/images/ProjectMercuryThumb.png) \
         $$quote($$BASEDIR/assets/images/R_door_2.0.3.png) \
+        $$quote($$BASEDIR/assets/images/SchumannBig.png) \
+        $$quote($$BASEDIR/assets/images/SchumannThumb.png) \
+        $$quote($$BASEDIR/assets/images/Scribble_light_256x256.amd) \
+        $$quote($$BASEDIR/assets/images/Scribble_light_256x256.png) \
+        $$quote($$BASEDIR/assets/images/VikingsBig.png) \
+        $$quote($$BASEDIR/assets/images/VikingsThumb.png) \
+        $$quote($$BASEDIR/assets/images/ZeppelinBig.png) \
+        $$quote($$BASEDIR/assets/images/ZeppelinThumb.png) \
         $$quote($$BASEDIR/assets/images/background.png) \
         $$quote($$BASEDIR/assets/images/bbm.png) \
         $$quote($$BASEDIR/assets/images/bbworld.png) \
@@ -89,6 +113,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/toast.png) \
         $$quote($$BASEDIR/assets/images/update.png) \
         $$quote($$BASEDIR/assets/main.qml) \
+        $$quote($$BASEDIR/assets/models/stamps.xml) \
         $$quote($$BASEDIR/assets/requestinfo.qml)
 }
 
@@ -135,7 +160,10 @@ lupdate_inclusion {
         $$quote($$BASEDIR/../assets/controls/*.qs) \
         $$quote($$BASEDIR/../assets/images/*.qml) \
         $$quote($$BASEDIR/../assets/images/*.js) \
-        $$quote($$BASEDIR/../assets/images/*.qs)
+        $$quote($$BASEDIR/../assets/images/*.qs) \
+        $$quote($$BASEDIR/../assets/models/*.qml) \
+        $$quote($$BASEDIR/../assets/models/*.js) \
+        $$quote($$BASEDIR/../assets/models/*.qs)
 
     HEADERS += \
         $$quote($$BASEDIR/../src/*.h) \
