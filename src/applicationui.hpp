@@ -23,6 +23,7 @@ namespace bb
     {
         class Application;
         class LocaleHandler;
+        class ListView;
     }
 }
 
@@ -47,6 +48,7 @@ private slots:
 private:
     QTranslator* m_pTranslator;
     bb::cascades::LocaleHandler* m_pLocaleHandler;
+    void setUpStampListModel(bb::cascades::ListView *stampList);
 };
 
 #endif /* ApplicationUI_HPP_ */

@@ -22,6 +22,9 @@
 #include <bb/cascades/QmlDocument>
 #include <bb/cascades/AbstractPane>
 #include <bb/cascades/LocaleHandler>
+#include <bb/data/JsonDataAccess>
+#include <bb/cascades/ListView>
+#include <bb/cascades/GroupDataModel>
 
 using namespace bb::cascades;
 
@@ -67,8 +70,29 @@ ApplicationUI::ApplicationUI(bb::cascades::Application *app) :
     // Create root object for the UI
     AbstractPane *root = qml->createRootObject<AbstractPane>();
 
+    ListView *stampList = root->findChild<ListView*>("stampList");
+    setUpStampListModel(stampList);
+
     // Set created root object as the application scene
     app->setScene(root);
+}
+
+void ApplicationUI::setUpStampListModel(ListView *stampList)
+{
+    bb::data::JsonDataAccess jda;
+    QVariantList mainList = jda.load("app/native/assets/stamps.json").value<QVariantList>();
+    if(jda.hasError()) {
+        bb::data::DataAccessError error = jda.error();
+        qDebug() << "JSON loading error: " << error.errorType() << ": " << error.errorMessage();
+        return;
+    }
+
+    GroupDataModel *stampModel = new GroupDataModel(QStringList() << "region");
+    stampModel->setParent(this);
+    stampModel->insertList(mainList);
+    stampModel->setGrouping(ItemGrouping::ByFullValue);
+
+    stampList->setDataModel(stampModel);
 }
 
 void ApplicationUI::onSystemLanguageChanged()

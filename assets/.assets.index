@@ -1,5 +1,5 @@
 1
-55
+56
 AppCover.qml
 BBM.qml
 ContentPage.qml
@@ -54,4 +54,5 @@ requestinfo.qml
 SettingsSheet.qml
 Spinners.qml
 StampItem.qml
+stamps.json
 Toasts.qml

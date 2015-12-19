@@ -114,7 +114,8 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/update.png) \
         $$quote($$BASEDIR/assets/main.qml) \
         $$quote($$BASEDIR/assets/models/stamps.xml) \
-        $$quote($$BASEDIR/assets/requestinfo.qml)
+        $$quote($$BASEDIR/assets/requestinfo.qml) \
+        $$quote($$BASEDIR/assets/stamps.json)
 }
 
 config_pri_source_group1 {
