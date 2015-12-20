@@ -32,7 +32,7 @@ Container {
     }
     
     // The image of the item is delivered from a model (in this case; an XML model from models/stamps.xml).
-    ImageView {
+    /*ImageView {
         
         // When using ListItems its best to use imageSources of content-type (relative path) 
         // rather then asset-type (prefixed asset:///). This is because asset-type images are loaded 
@@ -43,6 +43,10 @@ Container {
         verticalAlignment: VerticalAlignment.Center
         horizontalAlignment: HorizontalAlignment.Center
         accessibilityMode: A11yMode.Collapsed    
+    }*/
+    
+    TextArea {
+        text: ListItemData.room + ": " + ListItemData.time
     }
     
     accessibility:CustomA11yObject  {

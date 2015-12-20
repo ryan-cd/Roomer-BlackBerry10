@@ -71,7 +71,7 @@ ApplicationUI::ApplicationUI(bb::cascades::Application *app) :
     AbstractPane *root = qml->createRootObject<AbstractPane>();
 
     ListView *stampList = root->findChild<ListView*>("stampList");
-    setUpStampListModel(stampList);
+    setUpRoomListModel(stampList);
 
     // Set created root object as the application scene
     app->setScene(root);
@@ -93,6 +93,21 @@ void ApplicationUI::setUpStampListModel(ListView *stampList)
     stampModel->setGrouping(ItemGrouping::ByFullValue);
 
     stampList->setDataModel(stampModel);
+}
+
+void ApplicationUI::setUpRoomListModel(ListView *roomList)
+{
+    bb::data::JsonDataAccess jda;
+    GroupDataModel *roomModel = new GroupDataModel(QStringList() << "building" << "room");
+
+    roomModel->setGrouping(ItemGrouping::ByFullValue);
+    roomModel->setParent(this);
+
+    QVariantMap map;
+    map["building"] = "ITB"; map["room"] = "137"; map["time"] = "1111111"; roomModel->insert(map);
+    map["building"] = "ETB"; map["room"] = "227"; map["time"] = "1222111"; roomModel->insert(map);
+
+    roomList->setDataModel(roomModel);
 }
 
 void ApplicationUI::onSystemLanguageChanged()

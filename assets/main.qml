@@ -191,7 +191,7 @@ TabbedPane {
                     // This data model will be replaced by a JSON model when the application starts,
                     // an XML model can be used to prototype the UI and for smaller static lists.
                     dataModel: XmlDataModel {
-                        source: "models/stamps.xml"
+                        source: "models/rooms.xml"
                     }
                     
                     listItemComponents: [

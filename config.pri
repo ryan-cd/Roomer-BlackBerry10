@@ -113,8 +113,10 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/toast.png) \
         $$quote($$BASEDIR/assets/images/update.png) \
         $$quote($$BASEDIR/assets/main.qml) \
+        $$quote($$BASEDIR/assets/models/rooms.xml) \
         $$quote($$BASEDIR/assets/models/stamps.xml) \
         $$quote($$BASEDIR/assets/requestinfo.qml) \
+        $$quote($$BASEDIR/assets/rooms.json) \
         $$quote($$BASEDIR/assets/stamps.json)
 }
 

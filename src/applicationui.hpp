@@ -49,6 +49,7 @@ private:
     QTranslator* m_pTranslator;
     bb::cascades::LocaleHandler* m_pLocaleHandler;
     void setUpStampListModel(bb::cascades::ListView *stampList);
+    void setUpRoomListModel(bb::cascades::ListView *roomList);
 };
 
 #endif /* ApplicationUI_HPP_ */
