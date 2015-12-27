@@ -79,6 +79,9 @@ ApplicationUI::ApplicationUI(bb::cascades::Application *app) :
     RequestHeaders* requestHeaders = new RequestHeaders();
     requestHeaders->getRequest();
     bool ok = QObject::connect(requestHeaders, SIGNAL(complete(QString)), this, SLOT(onComplete(QString)));
+    bool ok2 = QObject::connect(requestHeaders, SIGNAL(dataComplete(QVariant)), this, SLOT(onDataComplete(QVariant)));
+    Q_ASSERT(ok2);
+    Q_UNUSED(ok2);
     Q_ASSERT(ok);
     Q_UNUSED(ok);
 }
@@ -117,6 +120,10 @@ void ApplicationUI::setUpRoomListModel(ListView *roomList)
 }
 
 void ApplicationUI::onComplete(QString result) {
+    qDebug() << result;
+}
+
+void ApplicationUI::onDataComplete(QVariant result) {
     qDebug() << result;
 }
 

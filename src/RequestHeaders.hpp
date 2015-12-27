@@ -17,6 +17,7 @@
 #define REQUESTHEADERS_HPP
 
 #include <QtCore/QObject>
+#include <QtCore/QVariant>
 
 class QNetworkAccessManager;
 
@@ -31,6 +32,7 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void complete(const QString &info);
+    void dataComplete(const QVariant result);
 
 private Q_SLOTS:
     void onGetReply();

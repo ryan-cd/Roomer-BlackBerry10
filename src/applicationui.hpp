@@ -17,6 +17,7 @@
 
 #include <QObject>
 #include <QtCore/QObject>
+#include <QtCore/QVariant>
 #include "RequestHeaders.hpp"
 
 namespace bb
@@ -48,6 +49,7 @@ public:
 private slots:
     void onSystemLanguageChanged();
     void onComplete(QString result);
+    void onDataComplete(QVariant result);
 private:
     QTranslator* m_pTranslator;
     bb::cascades::LocaleHandler* m_pLocaleHandler;

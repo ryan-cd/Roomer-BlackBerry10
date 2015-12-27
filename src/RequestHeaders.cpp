@@ -164,5 +164,6 @@ void RequestHeaders::onGetReply()
     }
 
     emit complete(response);
+    emit dataComplete(reply->attribute(QNetworkRequest::HttpStatusCodeAttribute));
 }
 //! [1]
