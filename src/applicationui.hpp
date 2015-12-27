@@ -16,6 +16,8 @@
 #define ApplicationUI_HPP_
 
 #include <QObject>
+#include <QtCore/QObject>
+#include "RequestHeaders.hpp"
 
 namespace bb
 {
@@ -45,6 +47,7 @@ public:
     Q_INVOKABLE QByteArray encodeQString(const QString& toEncode) const;
 private slots:
     void onSystemLanguageChanged();
+    void onComplete(QString result);
 private:
     QTranslator* m_pTranslator;
     bb::cascades::LocaleHandler* m_pLocaleHandler;

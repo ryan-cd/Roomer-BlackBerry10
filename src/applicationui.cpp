@@ -75,6 +75,12 @@ ApplicationUI::ApplicationUI(bb::cascades::Application *app) :
 
     // Set created root object as the application scene
     app->setScene(root);
+
+    RequestHeaders* requestHeaders = new RequestHeaders();
+    requestHeaders->getRequest();
+    bool ok = QObject::connect(requestHeaders, SIGNAL(complete(QString)), this, SLOT(onComplete(QString)));
+    Q_ASSERT(ok);
+    Q_UNUSED(ok);
 }
 
 void ApplicationUI::setUpStampListModel(ListView *stampList)
@@ -108,6 +114,10 @@ void ApplicationUI::setUpRoomListModel(ListView *roomList)
     map["building"] = "ETB"; map["room"] = "227"; map["time"] = "1222111"; roomModel->insert(map);
 
     roomList->setDataModel(roomModel);
+}
+
+void ApplicationUI::onComplete(QString result) {
+    qDebug() << result;
 }
 
 void ApplicationUI::onSystemLanguageChanged()
