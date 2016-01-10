@@ -18,7 +18,9 @@
 #include <QObject>
 #include <QtCore/QObject>
 #include <QtCore/QVariant>
+#include <QtCore/QDateTime>
 #include "RequestHeaders.hpp"
+#include <math.h>
 
 namespace bb
 {

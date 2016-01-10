@@ -126,15 +126,14 @@ void ApplicationUI::onComplete(QString result) {
 }
 
 void ApplicationUI::onDataComplete(QMap<QString, QVariant> result) {
-    qDebug() << result;
-
     QVariantMap map;
     GroupDataModel *roomModel = new GroupDataModel(QStringList() << "building");
     roomModel->setGrouping(ItemGrouping::ByFullValue);
     roomModel->setParent(this);
     QList<QVariant> building;
     QList<QVariant> room;
-    qDebug() << "number of buildings" << result.keys().count();
+    float timeOpen;
+
     for(int i = 0; i < result.keys().count(); i++)
     {
         building = result.values().takeAt(i).toList();
@@ -143,7 +142,8 @@ void ApplicationUI::onDataComplete(QMap<QString, QVariant> result) {
             room = building[j].toList();
             map["building"] = result.keys().takeAt(i);
             map["room"] = room[0];
-            map["time"] = room[1];
+            timeOpen = (float) QDateTime::currentDateTime().secsTo(QDateTime::fromTime_t(room[1].toInt())) / 3600;
+            map["time"] = (roundf(timeOpen * 100)) / 100.0;
             roomModel->insert(map);
         }
     }
