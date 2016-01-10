@@ -78,7 +78,7 @@ TabbedPane {
             }
         }
     }
-    Tab {
+    /*Tab {
         title: qsTr("McMaster")
         imageSource: "asset:///images/get.png"
         
@@ -156,10 +156,11 @@ TabbedPane {
                 //! [0]
             }
         }
-    }
+    }*/
     
     Tab {
-        title: qsTr("ListView")
+        title: qsTr("McMaster")
+        imageSource: "asset:///images/get.png"
         Page {
             id: stampListPage
             

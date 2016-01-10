@@ -178,18 +178,6 @@
         <source>McMaster</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Available Rooms</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fetching room data...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>ListView</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>requestinfo</name>
