@@ -132,13 +132,20 @@ void ApplicationUI::onDataComplete(QMap<QString, QVariant> result) {
     GroupDataModel *roomModel = new GroupDataModel(QStringList() << "building");
     roomModel->setGrouping(ItemGrouping::ByFullValue);
     roomModel->setParent(this);
-    QList<QVariant> buildings;
-    QList<QVariant> rooms;
+    QList<QVariant> building;
+    QList<QVariant> room;
     qDebug() << "number of buildings" << result.keys().count();
     for(int i = 0; i < result.keys().count(); i++)
     {
-        map["building"] = result.keys().takeAt(i);
-        roomModel->insert(map);
+        building = result.values().takeAt(i).toList();
+        for(int j = 0; j < building.count(); j++)
+        {
+            room = building[j].toList();
+            map["building"] = result.keys().takeAt(i);
+            map["room"] = room[0];
+            map["time"] = room[1];
+            roomModel->insert(map);
+        }
     }
     this->roomListView->setDataModel(roomModel);
 }
