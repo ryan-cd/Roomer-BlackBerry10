@@ -46,6 +46,7 @@ Container {
     }*/
     
     TextArea {
+        editable: false
         text: ListItemData.room + ": " + ListItemData.time
     }
     
