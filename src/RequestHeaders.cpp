@@ -73,6 +73,7 @@ void RequestHeaders::onGetReply()
     qDebug() << "Enter";
     QNetworkReply* reply = qobject_cast<QNetworkReply*>(sender());
     QString response;
+    QMap<QString, QVariant> jsonreply;
     if (reply) {
         qDebug() << "Reply";
         if (reply->error() == QNetworkReply::NoError) {
@@ -101,7 +102,7 @@ void RequestHeaders::onGetReply()
                 bb::data::JsonDataAccess ja;
                 const QVariant jsonva = ja.loadFromBuffer(buffer);
 
-                const QMap<QString, QVariant> jsonreply = jsonva.toMap();
+                jsonreply = jsonva.toMap();
 
                 // Locate the header array
 //                QMap<QString, QVariant>::const_iterator it = jsonreply.find("headers");
@@ -164,6 +165,6 @@ void RequestHeaders::onGetReply()
     }
 
     emit complete(response);
-    emit dataComplete(reply->attribute(QNetworkRequest::HttpStatusCodeAttribute));
+    emit dataComplete(jsonreply);
 }
 //! [1]

@@ -32,7 +32,7 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void complete(const QString &info);
-    void dataComplete(const QVariant result);
+    void dataComplete(QMap<QString, QVariant> result);
 
 private Q_SLOTS:
     void onGetReply();

@@ -72,6 +72,7 @@ ApplicationUI::ApplicationUI(bb::cascades::Application *app) :
 
     ListView *stampList = root->findChild<ListView*>("stampList");
     setUpRoomListModel(stampList);
+    this->roomListView = stampList;
 
     // Set created root object as the application scene
     app->setScene(root);
@@ -79,7 +80,7 @@ ApplicationUI::ApplicationUI(bb::cascades::Application *app) :
     RequestHeaders* requestHeaders = new RequestHeaders();
     requestHeaders->getRequest();
     bool ok = QObject::connect(requestHeaders, SIGNAL(complete(QString)), this, SLOT(onComplete(QString)));
-    bool ok2 = QObject::connect(requestHeaders, SIGNAL(dataComplete(QVariant)), this, SLOT(onDataComplete(QVariant)));
+    bool ok2 = QObject::connect(requestHeaders, SIGNAL(dataComplete(QMap<QString, QVariant>)), this, SLOT(onDataComplete(QMap<QString, QVariant>)));
     Q_ASSERT(ok2);
     Q_UNUSED(ok2);
     Q_ASSERT(ok);
@@ -120,11 +121,26 @@ void ApplicationUI::setUpRoomListModel(ListView *roomList)
 }
 
 void ApplicationUI::onComplete(QString result) {
-    qDebug() << result;
+    //qDebug() << result;
+    qDebug() << "onComplete";
 }
 
-void ApplicationUI::onDataComplete(QVariant result) {
+void ApplicationUI::onDataComplete(QMap<QString, QVariant> result) {
     qDebug() << result;
+
+    QVariantMap map;
+    GroupDataModel *roomModel = new GroupDataModel(QStringList() << "building");
+    roomModel->setGrouping(ItemGrouping::ByFullValue);
+    roomModel->setParent(this);
+    QList<QVariant> buildings;
+    QList<QVariant> rooms;
+    qDebug() << "number of buildings" << result.keys().count();
+    for(int i = 0; i < result.keys().count(); i++)
+    {
+        map["building"] = result.keys().takeAt(i);
+        roomModel->insert(map);
+    }
+    this->roomListView->setDataModel(roomModel);
 }
 
 void ApplicationUI::onSystemLanguageChanged()
