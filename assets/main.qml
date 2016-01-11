@@ -166,7 +166,7 @@ TabbedPane {
             
             Container {
                 // A paper-style image is used to tile the background.
-                background: backgroundPaint.imagePaint
+                /*background: backgroundPaint.imagePaint
                 
                 attachedObjects: [
                     ImagePaintDefinition {
@@ -174,7 +174,7 @@ TabbedPane {
                         imageSource: "asset:///images/Scribble_light_256x256.amd"
                         repeatPattern: RepeatPattern.XY
                     }
-                ]
+                ]*/
                 
                 // Main List
                 ListView {
@@ -184,9 +184,9 @@ TabbedPane {
                     layout: GridListLayout {
                         columnCount: 1
                         headerMode: ListHeaderMode.Standard
-                        cellAspectRatio: 1.4
-                        spacingAfterHeader: ui.du(4)
-                        verticalCellSpacing: 0
+                        cellAspectRatio: 10
+                        //spacingAfterHeader: ui.du(4)
+                        //verticalCellSpacing: 0
                     }
                     
                     // This data model will be replaced by a JSON model when the application starts,
