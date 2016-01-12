@@ -133,18 +133,38 @@ void ApplicationUI::onDataComplete(QMap<QString, QVariant> result) {
     QList<QVariant> building;
     QList<QVariant> room;
     float timeOpen;
+    int hoursOpen;
+    int minutesOpen;
+    QString time;
 
-    for(int i = 0; i < result.keys().count(); i++)
+    qDebug() << result;
+    qDebug() << result.keys().takeAt(0) << result.keys().takeAt(1) << result.values().takeAt(0) << result.values().takeAt(1).toString();
+
+    if(result.keys().takeAt(0) == "code")
     {
-        building = result.values().takeAt(i).toList();
-        for(int j = 0; j < building.count(); j++)
+        map["building"] = "Info";
+        map["room"] = "Server Message";
+        map["time"] = result.values().takeAt(1);
+        roomModel->insert(map);
+    }
+    else
+    {
+        for(int i = 0; i < result.keys().count(); i++)
         {
-            room = building[j].toList();
-            map["building"] = result.keys().takeAt(i);
-            map["room"] = room[0];
-            timeOpen = (float) QDateTime::currentDateTime().secsTo(QDateTime::fromTime_t(room[1].toInt())) / 3600;
-            map["time"] = (roundf(timeOpen * 100)) / 100.0;
-            roomModel->insert(map);
+            building = result.values().takeAt(i).toList();
+            for(int j = 0; j < building.count(); j++)
+            {
+                room = building[j].toList();
+                map["building"] = result.keys().takeAt(i);
+                map["room"] = room[0];
+
+                timeOpen = (float) QDateTime::currentDateTime().secsTo(QDateTime::fromTime_t(room[1].toInt())) / 3600;
+                hoursOpen = floorf(timeOpen);
+                minutesOpen = roundf(60 * (timeOpen - hoursOpen));
+                time = QString::number(hoursOpen) + "h" + QString::number(minutesOpen) + "m";
+                map["time"] = time;
+                roomModel->insert(map);
+            }
         }
     }
     this->roomListView->setDataModel(roomModel);

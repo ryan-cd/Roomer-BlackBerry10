@@ -182,9 +182,9 @@ TabbedPane {
                     objectName: "stampList"
                     
                     layout: GridListLayout {
-                        columnCount: 3
+                        columnCount: 2
                         headerMode: ListHeaderMode.Standard
-                        cellAspectRatio: 6
+                        cellAspectRatio: 4
                         //spacingAfterHeader: ui.du(4)
                         //verticalCellSpacing: 0
                     }

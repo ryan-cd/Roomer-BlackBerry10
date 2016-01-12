@@ -46,8 +46,8 @@ Container {
     }*/
     
     Label {
-    text: "<html><b>" + ListItemData.room + "</b>: " + ListItemData.time+ "</html>" 
-        
+        multiline: true
+        text: "<html><b>" + ListItemData.room + "</b>: " + ListItemData.time+ "</html>" 
         /*textStyle {
             base: SystemDefaults.TextStyles.BodyText
             color: Color.Black
