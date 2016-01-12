@@ -166,7 +166,7 @@ TabbedPane {
             
             Container {
                 // A paper-style image is used to tile the background.
-                /*background: backgroundPaint.imagePaint
+                background: backgroundPaint.imagePaint
                 
                 attachedObjects: [
                     ImagePaintDefinition {
@@ -174,7 +174,7 @@ TabbedPane {
                         imageSource: "asset:///images/Scribble_light_256x256.amd"
                         repeatPattern: RepeatPattern.XY
                     }
-                ]*/
+                ]
                 
                 // Main List
                 ListView {
@@ -182,9 +182,9 @@ TabbedPane {
                     objectName: "stampList"
                     
                     layout: GridListLayout {
-                        columnCount: 1
+                        columnCount: 3
                         headerMode: ListHeaderMode.Standard
-                        cellAspectRatio: 10
+                        cellAspectRatio: 6
                         //spacingAfterHeader: ui.du(4)
                         //verticalCellSpacing: 0
                     }

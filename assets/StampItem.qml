@@ -45,9 +45,14 @@ Container {
         accessibilityMode: A11yMode.Collapsed    
     }*/
     
-    TextArea {
-        editable: false
-        text: ListItemData.room + ": " + ListItemData.time
+    Label {
+    text: "<html><b>" + ListItemData.room + "</b>: " + ListItemData.time+ "</html>" 
+        
+        /*textStyle {
+            base: SystemDefaults.TextStyles.BodyText
+            color: Color.Black
+            fontSize: FontSize.Medium
+        }*/
     }
     
     accessibility:CustomA11yObject  {
