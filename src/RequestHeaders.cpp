@@ -74,6 +74,8 @@ void RequestHeaders::onGetReply()
     QNetworkReply* reply = qobject_cast<QNetworkReply*>(sender());
     QString response;
     QMap<QString, QVariant> jsonreply;
+    jsonreply["appError"] = "No connection";
+
     if (reply) {
         qDebug() << "Reply";
         if (reply->error() == QNetworkReply::NoError) {

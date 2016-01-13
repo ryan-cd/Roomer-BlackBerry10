@@ -138,8 +138,8 @@ void ApplicationUI::onDataComplete(QMap<QString, QVariant> result) {
     QString time;
 
     qDebug() << result;
-    qDebug() << result.keys().takeAt(0) << result.keys().takeAt(1) << result.values().takeAt(0) << result.values().takeAt(1).toString();
 
+    //server error message
     if(result.keys().takeAt(0) == "code")
     {
         map["building"] = "Info";
@@ -147,6 +147,15 @@ void ApplicationUI::onDataComplete(QMap<QString, QVariant> result) {
         map["time"] = result.values().takeAt(1);
         roomModel->insert(map);
     }
+    //app error message
+    else if(result.keys().takeAt(0) == "appError")
+    {
+        map["building"] = "Device Error";
+        map["room"] = "Info";
+        map["time"] = result.values().takeAt(0);
+        roomModel->insert(map);
+    }
+    //regular server response
     else
     {
         for(int i = 0; i < result.keys().count(); i++)
