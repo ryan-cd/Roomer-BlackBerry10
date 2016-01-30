@@ -183,7 +183,7 @@ TabbedPane {
                     
                     layout: GridListLayout {
                         columnCount: 2
-                        headerMode: ListHeaderMode.Standard
+                        headerMode: ListHeaderMode.Sticky
                         cellAspectRatio: 4
                         //spacingAfterHeader: ui.du(4)
                         //verticalCellSpacing: 0
