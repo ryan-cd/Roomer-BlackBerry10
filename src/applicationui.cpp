@@ -114,8 +114,7 @@ void ApplicationUI::setUpRoomListModel(ListView *roomList)
     roomModel->setParent(this);
 
     QVariantMap map;
-    map["building"] = "ITB"; map["room"] = "137"; map["time"] = "1111111"; roomModel->insert(map);
-    map["building"] = "ETB"; map["room"] = "227"; map["time"] = "1222111"; roomModel->insert(map);
+    map["building"] = "Info"; map["room"] = "Server Message"; map["time"] = "Retrieving..."; roomModel->insert(map);
 
     roomList->setDataModel(roomModel);
 }
