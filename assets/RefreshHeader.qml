@@ -4,6 +4,7 @@ Container {
     signal triggerRefresh()
     property bool refreshing: false
     property bool refreshCocked: false
+    property bool asynchronous
     property int pullThreshold: 50
     id: refreshHeaderContainer
     
@@ -29,8 +30,10 @@ Container {
                     refreshHeaderContainer.visible = false;
                     refreshHeaderContainer.setPreferredHeight(0);
                     triggerRefresh();
-                    refreshHeaderContainer.visible = true;
-                    refreshing = false;
+                    if(!asynchronous) {
+                        refreshHeaderContainer.visible = true;
+                        refreshing = false;
+                    }
                 }
             }
         }
@@ -54,4 +57,10 @@ Container {
             }
         }
     ]
+    function refreshDone() {
+        refreshContainer.visible = true;
+        refreshImage.rotationZ = 0.0;
+        refreshText.text = qsStr("Pull down to refresh");
+        refreshong = false;
+    }
 }

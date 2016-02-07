@@ -197,13 +197,17 @@ TabbedPane {
                     
                     leadingVisual: RefreshHeader {
                         id: refreshHeader
+                        asynchronous: false
                         onTriggerRefresh: {
-                            
+                            //launch the async refresh
                         }
                     }
                     leadingVisualSnapThreshold: 2.0
                     onTouch: {
                         refreshHeader.onListViewTouch(event);
+                    }
+                    function refreshDone() {
+                        refreshHeader.refreshDone();
                     }
                     
                     listItemComponents: [
