@@ -195,6 +195,11 @@ TabbedPane {
                         source: "models/rooms.xml"
                     }
                     
+                    leadingVisual: RefreshHeader {
+                        
+                    }
+                    leadingVisualSnapThreshold: 2.0
+                    
                     listItemComponents: [
                         ListItemComponent {
                             type: "header"

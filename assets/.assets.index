@@ -1,5 +1,5 @@
 1
-58
+59
 AppCover.qml
 BBM.qml
 ContentPage.qml
@@ -51,6 +51,7 @@ Invoke.qml
 main.qml
 models/rooms.xml
 models/stamps.xml
+RefreshHeader.qml
 requestinfo.qml
 rooms.json
 SettingsSheet.qml

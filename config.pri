@@ -66,6 +66,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/HelpSheet.qml) \
         $$quote($$BASEDIR/assets/Home.qml) \
         $$quote($$BASEDIR/assets/Invoke.qml) \
+        $$quote($$BASEDIR/assets/RefreshHeader.qml) \
         $$quote($$BASEDIR/assets/SettingsSheet.qml) \
         $$quote($$BASEDIR/assets/Spinners.qml) \
         $$quote($$BASEDIR/assets/StampItem.qml) \

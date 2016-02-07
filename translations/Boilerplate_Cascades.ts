@@ -113,6 +113,13 @@
     </message>
 </context>
 <context>
+    <name>RefreshHeader</name>
+    <message>
+        <source>Pull down to refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>RequestHeaders</name>
     <message>
         <source>Error: %1 status: %2</source>
