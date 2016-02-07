@@ -78,85 +78,6 @@ TabbedPane {
             }
         }
     }
-    /*Tab {
-        title: qsTr("McMaster")
-        imageSource: "asset:///images/get.png"
-        
-        Page {
-            titleBar: TitleBar {
-                title: qsTr("Available Rooms") + Retranslate.onLanguageChanged
-            }
-            Container {
-                
-                layout: DockLayout {}
-                
-                // The background image
-                ImageView {
-                    horizontalAlignment: HorizontalAlignment.Fill
-                    verticalAlignment: VerticalAlignment.Fill
-                    
-                    imageSource: "asset:///images/background.png"
-                }
-                //! [0]
-                Container {
-                    horizontalAlignment: HorizontalAlignment.Center
-                    verticalAlignment: VerticalAlignment.Center
-                    leftPadding: ui.du(5.6)
-                    
-                    TextArea {
-                        id: headers
-                        
-                        visible: false
-                        editable: false
-                        backgroundVisible: false
-                        
-                        text: qsTr("Fetching room data...")
-                        textStyle {
-                            base: SystemDefaults.TextStyles.BodyText;
-                            color: Color.White
-                        }
-                    }
-                }
-                
-                NetworkActivity {
-                    id: progressIndicator
-                    
-                    horizontalAlignment: HorizontalAlignment.Fill
-                    verticalAlignment: VerticalAlignment.Fill
-                    
-                    title: qsTr("Fetching room data...")
-                }
-                
-                attachedObjects: [
-                    QTimer {
-                        id: timer
-                        interval: 1000
-                        onTimeout: {
-                            netheaders.getRequest();
-                        }
-                    },
-                    RequestHeaders {
-                        id : netheaders
-                        onComplete :{
-                            progressIndicator.active = false;
-                            progressIndicator.visible = false;
-                            
-                            headers.text = info;
-                            headers.visible = true;
-                            
-                            timer.stop();
-                        }
-                    }
-                ]
-                
-                onCreationCompleted: {
-                    progressIndicator.active = true;
-                    timer.start();
-                }
-                //! [0]
-            }
-        }
-    }*/
     
     Tab {
         title: qsTr("McMaster")
@@ -179,14 +100,12 @@ TabbedPane {
                 // Main List
                 ListView {
                     id: stampList
-                    objectName: "stampList"
+                    objectName: "roomList"
                     
                     layout: GridListLayout {
                         columnCount: 2
                         headerMode: ListHeaderMode.Sticky
                         cellAspectRatio: 4
-                        //spacingAfterHeader: ui.du(4)
-                        //verticalCellSpacing: 0
                     }
                     
                     // This data model will be replaced by a JSON model when the application starts,
@@ -200,6 +119,7 @@ TabbedPane {
                         asynchronous: false
                         onTriggerRefresh: {
                             //launch the async refresh
+                            console.log("Refreshing")
                         }
                     }
                     leadingVisualSnapThreshold: 2.0
@@ -272,37 +192,4 @@ TabbedPane {
             page.destroy();
         }*/
     }
-    /*Tab {
-        title: qsTr("BBM") + Retranslate.onLanguageChanged
-        imageSource: "asset:///images/bbm.png"
-        delegate: Delegate {
-            BBM {
-            }
-        }
-    }
-    Tab {
-        title: qsTr("Invoke") + Retranslate.onLanguageChanged
-        imageSource: "asset:///images/share.png"
-        delegate: Delegate {
-            Invoke {
-            }
-        }
-    }
-    Tab {
-        title: qsTr("Toasts") + Retranslate.onLanguageChanged
-        imageSource: "asset:///images/toast.png"
-        delegate: Delegate {
-            Toasts {
-            }
-        }
-    }
-    Tab {
-        title: qsTr("Spinners") + Retranslate.onLanguageChanged
-        imageSource: "asset:///images/spinner.png"
-        delegate: Delegate {
-            Spinners {
-            }
-        }
-
-    }*/
 }

@@ -31,28 +31,9 @@ Container {
         accessibilityMode: A11yMode.Collapsed       
     }
     
-    // The image of the item is delivered from a model (in this case; an XML model from models/stamps.xml).
-    /*ImageView {
-        
-        // When using ListItems its best to use imageSources of content-type (relative path) 
-        // rather then asset-type (prefixed asset:///). This is because asset-type images are loaded 
-        // immediately and can affect the scroll performance of the list (see the models/stamps.xml 
-        // to see what an imageSource of content type typically looks like).
-        imageSource: ListItemData.thumbURL
-        scalingMethod: ScalingMethod.AspectFit
-        verticalAlignment: VerticalAlignment.Center
-        horizontalAlignment: HorizontalAlignment.Center
-        accessibilityMode: A11yMode.Collapsed    
-    }*/
-    
     Label {
         multiline: true
         text: "<html><b>" + ListItemData.room + "</b>: " + ListItemData.time+ "</html>" 
-        /*textStyle {
-            base: SystemDefaults.TextStyles.BodyText
-            color: Color.Black
-            fontSize: FontSize.Medium
-        }*/
     }
     
     accessibility:CustomA11yObject  {

@@ -25,16 +25,6 @@
 #include <QUrl>
 
 #include "secrets.hpp"
-/**
- * RequestHeaders
- *
- * In this class you will learn the following:
- * -- How to use QNetworkAccessManager to make a network request
- * -- How to setup a secure connection with QSslConfiguration
- * -- How to read a network response with QNetworkReply
- * -- How to parse JSON data using JsonDataAccess
- * -- How to read the headers in an http response
- */
 
 RequestHeaders::RequestHeaders(QObject* parent)
     : QObject(parent)
@@ -42,12 +32,6 @@ RequestHeaders::RequestHeaders(QObject* parent)
 {
 }
 
-/**
- * RequestHeaders::getRequest()
- *
- * Setup an http get request using SSL if configured
- */
-//! [0]
 void RequestHeaders::getRequest()
 {
     const QUrl url("http://headers.jsontest.com/");
@@ -59,15 +43,7 @@ void RequestHeaders::getRequest()
     Q_ASSERT(ok);
     Q_UNUSED(ok);
 }
-//! [0]
 
-/**
- * RequestHeaders::onGetReply()
- *
- * SLOT
- * Handles the http response by parsing JSON and printing out the response http headers
- */
-//! [1]
 void RequestHeaders::onGetReply()
 {
     qDebug() << "Enter";
@@ -88,70 +64,10 @@ void RequestHeaders::onGetReply()
                 qDebug() << "Available";
                 const QByteArray buffer(reply->readAll());
 
-                // The data from reply is in a json format e.g
-                //"args": {},
-                //"headers": {
-                //  "Accept": "*/*",
-                //  "Connection": "close",
-                //  "Content-Length": "",
-                //  "Content-Type": "",
-                //  "Host": "httpbin.org",
-                //  "User-Agent": "curl/7.19.7 (universal-apple-darwin10.0) libcurl/7.19.7 OpenSSL/0.9.8l zlib/1.2.3"
-                //},
-                //"origin": "24.127.96.129",
-                //"url": "http://httpbin.org/get"
-
                 bb::data::JsonDataAccess ja;
                 const QVariant jsonva = ja.loadFromBuffer(buffer);
 
                 jsonreply = jsonva.toMap();
-
-                // Locate the header array
-//                QMap<QString, QVariant>::const_iterator it = jsonreply.find("headers");
-                /*QMap<QString, QVariant>::const_iterator it = jsonreply.begin();
-                if (it != jsonreply.end()) {
-                    // Print everything in header array
-                    const QMap<QString, QVariant> headers = it.value().toMap();
-                    for (QMap<QString, QVariant>::const_iterator hdrIter = headers.begin(); hdrIter != headers.end(); ++hdrIter) {
-                        if (hdrIter.value().toString().trimmed().isEmpty())
-                            continue; // Skip empty values
-                        response += QString::fromLatin1("%1: %2\r\n").arg(hdrIter.key(), hdrIter.value().toString());
-                    }
-                }
-
-                // Print everything else
-                for (it = jsonreply.begin(); it != jsonreply.end(); it++) {
-                    if (it.value().toString().trimmed().isEmpty())
-                        continue;  // Skip empty values
-
-                    response += QString::fromLatin1("%1: %2\r\n").arg(it.key(), it.value().toString());
-                }*/
-                QList<QVariant> buildings;
-                QList<QVariant> rooms;
-                qDebug() << "number of buildings" << jsonreply.keys().count();
-                for(int i = 0; i < jsonreply.keys().count(); i++)
-                {
-                    response += jsonreply.keys().takeAt(i);
-                    response += ": ";
-                    if(i == 0)
-                        qDebug() << "num rooms" << jsonreply.values().takeAt(i).toList().count();
-                    buildings = jsonreply.values().takeAt(i).toList();
-                    for(int j = 0; j < buildings.count(); j++)
-                    {
-                        rooms = buildings[j].toList();
-                        response += "[";
-                        for(int k = 0; k < rooms.count(); k+=2)
-                        {
-                            //qDebug() << rooms[k].toString() << ": " << rooms[k+1].toString();
-                            response += rooms[k].toString() + ": " + rooms[k+1].toString();
-                        }
-                        response += "]\n";
-                    }
-                    //if(i==0)
-                        //qDebug() << "room info " << rooms;
-                    response += "\n";
-                }
-
             }
 
         } else {
@@ -169,4 +85,3 @@ void RequestHeaders::onGetReply()
     emit complete(response);
     emit dataComplete(jsonreply);
 }
-//! [1]

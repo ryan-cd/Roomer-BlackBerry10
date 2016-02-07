@@ -48,18 +48,11 @@ ApplicationUI::ApplicationUI(bb::cascades::Application *app) :
     // initial load
     onSystemLanguageChanged();
 
-    //Kick off BBM Registration.
-	//TODO: Define your own UUID here. You can generate one here: http://www.guidgenerator.com/
-	const QString uuid(QLatin1String("fd34de4e-8671-442a-8c42-8c4743463400"));
-	BBMHandler *bbmHandler = new BBMHandler(uuid, app);
-	bbmHandler->registerApplication();
 
     // Create scene document from main.qml asset, the parent is set
     // to ensure the document gets destroyed properly at shut down.
     QmlDocument *qml = QmlDocument::create("asset:///main.qml").parent(this);
 
-    //Expose the BBM Registration handler to main.qml.
-	qml->setContextProperty("bbmHandler", bbmHandler);
 	//Expose the ApplicationUI in main.qml
 	qml->setContextProperty("app", this);
 
@@ -70,39 +63,18 @@ ApplicationUI::ApplicationUI(bb::cascades::Application *app) :
     // Create root object for the UI
     AbstractPane *root = qml->createRootObject<AbstractPane>();
 
-    ListView *stampList = root->findChild<ListView*>("stampList");
-    setUpRoomListModel(stampList);
-    this->roomListView = stampList;
+    ListView *roomList = root->findChild<ListView*>("roomList");
+    setUpRoomListModel(roomList);
+    this->roomListView = roomList;
 
     // Set created root object as the application scene
     app->setScene(root);
 
     RequestHeaders* requestHeaders = new RequestHeaders();
     requestHeaders->getRequest();
-    bool ok = QObject::connect(requestHeaders, SIGNAL(complete(QString)), this, SLOT(onComplete(QString)));
-    bool ok2 = QObject::connect(requestHeaders, SIGNAL(dataComplete(QMap<QString, QVariant>)), this, SLOT(onDataComplete(QMap<QString, QVariant>)));
-    Q_ASSERT(ok2);
-    Q_UNUSED(ok2);
-    Q_ASSERT(ok);
-    Q_UNUSED(ok);
-}
-
-void ApplicationUI::setUpStampListModel(ListView *stampList)
-{
-    bb::data::JsonDataAccess jda;
-    QVariantList mainList = jda.load("app/native/assets/stamps.json").value<QVariantList>();
-    if(jda.hasError()) {
-        bb::data::DataAccessError error = jda.error();
-        qDebug() << "JSON loading error: " << error.errorType() << ": " << error.errorMessage();
-        return;
-    }
-
-    GroupDataModel *stampModel = new GroupDataModel(QStringList() << "region");
-    stampModel->setParent(this);
-    stampModel->insertList(mainList);
-    stampModel->setGrouping(ItemGrouping::ByFullValue);
-
-    stampList->setDataModel(stampModel);
+    bool DATA_CONNECT = QObject::connect(requestHeaders, SIGNAL(dataComplete(QMap<QString, QVariant>)), this, SLOT(onDataComplete(QMap<QString, QVariant>)));
+    Q_ASSERT(DATA_CONNECT);
+    Q_UNUSED(DATA_CONNECT);
 }
 
 void ApplicationUI::setUpRoomListModel(ListView *roomList)
@@ -117,11 +89,6 @@ void ApplicationUI::setUpRoomListModel(ListView *roomList)
     map["building"] = "Info"; map["room"] = "Server Message"; map["time"] = "Retrieving..."; roomModel->insert(map);
 
     roomList->setDataModel(roomModel);
-}
-
-void ApplicationUI::onComplete(QString result) {
-    //qDebug() << result;
-    qDebug() << "onComplete";
 }
 
 void ApplicationUI::onDataComplete(QMap<QString, QVariant> result) {

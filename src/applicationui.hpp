@@ -50,13 +50,11 @@ public:
     Q_INVOKABLE QByteArray encodeQString(const QString& toEncode) const;
 private slots:
     void onSystemLanguageChanged();
-    void onComplete(QString result);
     void onDataComplete(QMap<QString, QVariant> result);
 private:
     QTranslator* m_pTranslator;
     bb::cascades::ListView* roomListView;
     bb::cascades::LocaleHandler* m_pLocaleHandler;
-    void setUpStampListModel(bb::cascades::ListView *stampList);
     void setUpRoomListModel(bb::cascades::ListView *roomList);
 };
 
