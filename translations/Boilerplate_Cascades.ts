@@ -118,6 +118,10 @@
         <source>Pull down to refresh</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Release to refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RequestHeaders</name>
