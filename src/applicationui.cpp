@@ -64,12 +64,21 @@ ApplicationUI::ApplicationUI(bb::cascades::Application *app) :
     AbstractPane *root = qml->createRootObject<AbstractPane>();
 
     ListView *roomList = root->findChild<ListView*>("roomList");
-    setUpRoomListModel(roomList);
     this->roomListView = roomList;
 
     // Set created root object as the application scene
     app->setScene(root);
 
+    bool REFRESH_CONNECT = QObject::connect(this, SIGNAL(refresh()), this, SLOT(onRefresh()));
+    Q_ASSERT(REFRESH_CONNECT);
+    Q_UNUSED(REFRESH_CONNECT);
+
+    refresh();
+}
+
+void ApplicationUI::onRefresh()
+{
+    setUpRoomListModel(this->roomListView);
     RequestHeaders* requestHeaders = new RequestHeaders();
     requestHeaders->getRequest();
     bool DATA_CONNECT = QObject::connect(requestHeaders, SIGNAL(dataComplete(QMap<QString, QVariant>)), this, SLOT(onDataComplete(QMap<QString, QVariant>)));
@@ -143,6 +152,7 @@ void ApplicationUI::onDataComplete(QMap<QString, QVariant> result) {
         }
     }
     this->roomListView->setDataModel(roomModel);
+    refreshDone();
 }
 
 void ApplicationUI::onSystemLanguageChanged()

@@ -58,9 +58,9 @@ Container {
         }
     ]
     function refreshDone() {
-        refreshContainer.visible = true;
+        refreshHeaderContainer.visible = true;
         refreshImage.rotationZ = 0.0;
-        refreshText.text = qsStr("Pull down to refresh");
-        refreshong = false;
+        refreshText.text = qsTr("Pull down to refresh");
+        refreshing = false;
     }
 }

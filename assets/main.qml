@@ -99,7 +99,7 @@ TabbedPane {
                 
                 // Main List
                 ListView {
-                    id: stampList
+                    id: roomList
                     objectName: "roomList"
                     
                     layout: GridListLayout {
@@ -116,10 +116,12 @@ TabbedPane {
                     
                     leadingVisual: RefreshHeader {
                         id: refreshHeader
-                        asynchronous: false
+                        asynchronous: true
                         onTriggerRefresh: {
                             //launch the async refresh
                             console.log("Refreshing")
+                            app.refreshDone.connect(roomList.refreshDone());
+                            app.refresh();
                         }
                     }
                     leadingVisualSnapThreshold: 2.0

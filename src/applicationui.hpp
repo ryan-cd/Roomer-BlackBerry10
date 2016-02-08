@@ -48,9 +48,13 @@ public:
     virtual ~ApplicationUI() { }
     // Converts the passed QString to an UTF-8 encoded QByteArray
     Q_INVOKABLE QByteArray encodeQString(const QString& toEncode) const;
+Q_SIGNALS:
+    void refreshDone();
+    void refresh();
 private slots:
     void onSystemLanguageChanged();
     void onDataComplete(QMap<QString, QVariant> result);
+    void onRefresh();
 private:
     QTranslator* m_pTranslator;
     bb::cascades::ListView* roomListView;
