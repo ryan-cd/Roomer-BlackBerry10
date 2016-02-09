@@ -28,6 +28,9 @@ Sheet {
             }
         }
         Container {
+            TextArea {
+                text: "Feature coming soon."
+            }
         
         }
     }

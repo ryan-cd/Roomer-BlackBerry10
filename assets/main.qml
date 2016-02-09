@@ -118,8 +118,6 @@ TabbedPane {
                         id: refreshHeader
                         asynchronous: true
                         onTriggerRefresh: {
-                            //launch the async refresh
-                            console.log("Refreshing")
                             app.refreshDone.connect(roomList.refreshDone());
                             app.refresh();
                         }

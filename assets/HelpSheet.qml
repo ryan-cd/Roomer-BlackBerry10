@@ -31,18 +31,8 @@ Sheet {
            	leftPadding: 4.0
            	rightPadding: 4.0           	
             Label {
-                text: qsTr("This application serves as a starting point for creating Built For BlackBerry applications.") + Retranslate.onLanguageChanged
+                text: qsTr("Select your school on the left navigation bar to see room availability.") + Retranslate.onLanguageChanged
                 multiline: true
-            }
-            Label {
-                text: qsTr("To go beyond the code that is provided here, visit our documentation at https://developer.blackberry.com/native/") + Retranslate.onLanguageChanged
-                multiline: true
-                content.flags: TextContentFlag.ActiveText
-            }
-            Label {
-                text: qsTr("Or, find sample code at https://github.com/blackberry/Cascades-Samples") + Retranslate.onLanguageChanged
-                multiline: true
-                content.flags: TextContentFlag.ActiveText
             }
         }
 

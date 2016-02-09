@@ -1,11 +1,6 @@
 <root>  
-    <header title="JHE">
-        <item  room="264" time="1450580400"/>
-        <item  room="346" time="1450580400"/>
-    </header>
-    <header title="IAHS">
-        <item  room="451" time="1450580400"/>
-        <item  room="144" time="1450580400"/>
+    <header title="Info">
+        <item  room="Server Message:" time="Retrieving..."/>
     </header>
 </root>
  
