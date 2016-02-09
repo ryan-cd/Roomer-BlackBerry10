@@ -74,15 +74,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This application serves as a starting point for creating Built For BlackBerry applications.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>To go beyond the code that is provided here, visit our documentation at https://developer.blackberry.com/native/</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Or, find sample code at https://github.com/blackberry/Cascades-Samples</source>
+        <source>Select your school on the left navigation bar to see room availability.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

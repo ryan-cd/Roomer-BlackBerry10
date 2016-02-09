@@ -48,11 +48,17 @@ ApplicationUI::ApplicationUI(bb::cascades::Application *app) :
     // initial load
     onSystemLanguageChanged();
 
+    //Kick off BBM registration
+    const QString uuid(QLatin1String("fd34de4e-8671-442a-8c42-8c4743463400"));
+    BBMHandler *bbmHandler = new BBMHandler(uuid, app);
+    bbmHandler->registerApplication();
 
     // Create scene document from main.qml asset, the parent is set
     // to ensure the document gets destroyed properly at shut down.
     QmlDocument *qml = QmlDocument::create("asset:///main.qml").parent(this);
 
+    //Expose BBM registration handler to main.qml
+    qml->setContextProperty("bbmHandler", bbmHandler);
 	//Expose the ApplicationUI in main.qml
 	qml->setContextProperty("app", this);
 
