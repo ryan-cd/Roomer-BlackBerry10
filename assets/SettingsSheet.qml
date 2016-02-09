@@ -29,7 +29,7 @@ Sheet {
         }
         Container {
             TextArea {
-                text: "Feature coming soon."
+                text: "Settings coming soon."
             }
         
         }

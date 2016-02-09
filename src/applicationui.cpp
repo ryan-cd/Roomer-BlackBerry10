@@ -118,7 +118,7 @@ void ApplicationUI::onDataComplete(QMap<QString, QVariant> result) {
     int minutesOpen;
     QString time;
 
-    qDebug() << result;
+    //qDebug() << result;
 
     //server error message
     if(result.keys().takeAt(0) == "code")

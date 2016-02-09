@@ -101,7 +101,6 @@ TabbedPane {
                 ListView {
                     id: roomList
                     objectName: "roomList"
-                    
                     layout: GridListLayout {
                         columnCount: 2
                         headerMode: ListHeaderMode.Sticky
@@ -116,6 +115,7 @@ TabbedPane {
                     
                     leadingVisual: RefreshHeader {
                         id: refreshHeader
+                        horizontalAlignment: HorizontalAlignment.Center
                         asynchronous: true
                         onTriggerRefresh: {
                             app.refreshDone.connect(roomList.refreshDone());
@@ -154,7 +154,7 @@ TabbedPane {
                         }
                     ] // listItemComponents
                     
-                    onTriggered: {
+                    /*onTriggered: {
                         
                         // To avoid triggering navigation when pressing the header items, we check so that the  
                         // index path length is larger then one (one entry would be a group under a header item).
@@ -173,7 +173,7 @@ TabbedPane {
                             //NOTE: Cannot push onto a TabbedPane
                             //nav.push(contentpage);
                         }
-                    }                
+                    }*/                
                 }
             }// Container
         }// StampPage

@@ -6,6 +6,7 @@ Container {
     property bool refreshCocked: false
     property bool asynchronous
     property int pullThreshold: 50
+    
     id: refreshHeaderContainer
     
     ImageView {

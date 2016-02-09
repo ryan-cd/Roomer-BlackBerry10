@@ -46,22 +46,16 @@ void RequestHeaders::getRequest()
 
 void RequestHeaders::onGetReply()
 {
-    qDebug() << "Enter";
     QNetworkReply* reply = qobject_cast<QNetworkReply*>(sender());
     QString response;
     QMap<QString, QVariant> jsonreply;
     jsonreply["appError"] = "No connection";
 
     if (reply) {
-        qDebug() << "Reply";
         if (reply->error() == QNetworkReply::NoError) {
-            qDebug() << "No error";
             const int available = reply->bytesAvailable();
-
-            qDebug() << "bytes available: " << available;
-            qDebug() << "network response: " << reply->attribute(QNetworkRequest::HttpStatusCodeAttribute);
+            //qDebug() << "network response: " << reply->attribute(QNetworkRequest::HttpStatusCodeAttribute);
             if (available > 0) {
-                qDebug() << "Available";
                 const QByteArray buffer(reply->readAll());
 
                 bb::data::JsonDataAccess ja;
