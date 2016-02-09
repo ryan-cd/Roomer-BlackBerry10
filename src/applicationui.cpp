@@ -17,6 +17,7 @@
 #include "bbm/BBMHandler.hpp"
 #include "activeFrameQML.h"
 #include "RequestHeaders.hpp"
+#include "secrets.hpp"
 
 #include <bb/cascades/Application>
 #include <bb/cascades/QmlDocument>
@@ -49,7 +50,6 @@ ApplicationUI::ApplicationUI(bb::cascades::Application *app) :
     onSystemLanguageChanged();
 
     //Kick off BBM registration
-    const QString uuid(QLatin1String("fd34de4e-8671-442a-8c42-8c4743463400"));
     BBMHandler *bbmHandler = new BBMHandler(uuid, app);
     bbmHandler->registerApplication();
 

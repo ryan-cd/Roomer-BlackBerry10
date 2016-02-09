@@ -34,8 +34,6 @@ RequestHeaders::RequestHeaders(QObject* parent)
 
 void RequestHeaders::getRequest()
 {
-    const QUrl url("http://headers.jsontest.com/");
-
     QNetworkRequest request(roomUrl);
 
     QNetworkReply* reply = m_networkAccessManager->get(request);
