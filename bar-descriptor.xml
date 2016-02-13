@@ -61,24 +61,21 @@
     </splashScreens>
     <configuration name="Device-Debug">
        <platformArchitecture>armle-v7</platformArchitecture>
-       <asset path="arm/o.le-v7-g/Boilerplate_Cascades" entry="true" type="Qnx/Elf">Boilerplate_Cascades</asset>
+       <asset path="arm/o.le-v7-g/Roomer" entry="true" type="Qnx/Elf">Roomer</asset>
     </configuration>
     <configuration name="Device-Release">
        <entryPointType>Qnx/Cascades</entryPointType>
        <platformArchitecture>armle-v7</platformArchitecture>
-       <asset path="arm/o.le-v7/Boilerplate_Cascades.so" entry="true" type="Qnx/Elf">Boilerplate_Cascades.so</asset>
+       <asset path="arm/o.le-v7/Roomer.so" entry="true" type="Qnx/Elf">Roomer.so</asset>
     </configuration>
     <configuration name="Device-Profile">
        <platformArchitecture>armle-v7</platformArchitecture>
-       <asset path="arm-p/o.le-v7-g/Boilerplate_Cascades" entry="true" type="Qnx/Elf">Boilerplate_Cascades</asset>
+       <asset path="arm-p/o.le-v7-g/Roomer" entry="true" type="Qnx/Elf">Roomer</asset>
     </configuration>
     <configuration name="Simulator-Debug">
        <platformArchitecture>x86</platformArchitecture>
-       <asset path="x86/o-g/Boilerplate_Cascades" entry="true" type="Qnx/Elf">Boilerplate_Cascades</asset>
+       <asset path="x86/o-g/Roomer" entry="true" type="Qnx/Elf">Roomer</asset>
     </configuration>
-    
-    <!--  Unique author ID assigned by signing authority. Required if using debug tokens. -->
-    <!-- <authorId>ABC1234YjsnUk235h</authorId> -->
    
     <initialWindow>
         <autoOrients>true</autoOrients>
