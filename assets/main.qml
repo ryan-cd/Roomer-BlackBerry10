@@ -14,7 +14,6 @@
  */
 import bb.cascades 1.3
 import Network.RequestHeaders 1.0
-import "controls"
 import my.library 1.0
 
 TabbedPane {

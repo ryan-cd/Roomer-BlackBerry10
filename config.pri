@@ -71,7 +71,6 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/Spinners.qml) \
         $$quote($$BASEDIR/assets/StampItem.qml) \
         $$quote($$BASEDIR/assets/Toasts.qml) \
-        $$quote($$BASEDIR/assets/controls/NetworkActivity.qml) \
         $$quote($$BASEDIR/assets/images/R_door_2.0.3.png) \
         $$quote($$BASEDIR/assets/images/Scribble_light_256x256.amd) \
         $$quote($$BASEDIR/assets/images/Scribble_light_256x256.png) \
@@ -94,7 +93,6 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/update.png) \
         $$quote($$BASEDIR/assets/main.qml) \
         $$quote($$BASEDIR/assets/models/rooms.xml) \
-        $$quote($$BASEDIR/assets/requestinfo.qml) \
         $$quote($$BASEDIR/assets/rooms.json) \
         $$quote($$BASEDIR/assets/stamps.json)
 }
@@ -137,9 +135,6 @@ lupdate_inclusion {
         $$quote($$BASEDIR/../assets/*.qml) \
         $$quote($$BASEDIR/../assets/*.js) \
         $$quote($$BASEDIR/../assets/*.qs) \
-        $$quote($$BASEDIR/../assets/controls/*.qml) \
-        $$quote($$BASEDIR/../assets/controls/*.js) \
-        $$quote($$BASEDIR/../assets/controls/*.qs) \
         $$quote($$BASEDIR/../assets/images/*.qml) \
         $$quote($$BASEDIR/../assets/images/*.js) \
         $$quote($$BASEDIR/../assets/images/*.qs) \

@@ -182,15 +182,4 @@
         <translation type="unfinished"></translation>
     </message>
 </context>
-<context>
-    <name>requestinfo</name>
-    <message>
-        <source>Retrieving Headers</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>requestinfo</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
 </TS>
